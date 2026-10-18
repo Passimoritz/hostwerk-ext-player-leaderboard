@@ -1,0 +1,14 @@
+{
+  "title": "Spieler-Bestenliste",
+  "summary": "{n} Spieler · {week} in den letzten 7 Tagen da",
+  "allServers": "Alle Server",
+  "metric.playMs": "Spielzeit",
+  "metric.sessions": "Besuche",
+  "metric.mined": "Abgebaut",
+  "metric.deaths": "Tode",
+  "servers": "{n} Server",
+  "noServers": "Noch kein Minecraft-Server",
+  "noServersHint": "Lege in Hostwerk einen Minecraft-Server an – sobald jemand spielt, erscheint hier die Bestenliste.",
+  "noData": "Noch keine Spieldaten.",
+  "widgetTitle": "Meiste Spielzeit"
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Passimoritz/hostwerk-public/main/sdk/manifest.schema.json",
+  "id": "player-leaderboard",
+  "color": "#eab308",
+  "name": {
+    "de": "Spieler-Bestenliste",
+    "en": "Player leaderboard"
+  },
+  "description": {
+    "de": "Wer am meisten spielt, abbaut oder stirbt – über alle Minecraft-Server zusammen oder je Server. Mit Kachel für die Übersicht.",
+    "en": "Who plays, mines or dies the most – across all Minecraft servers or per server. With a dashboard tile."
+  },
+  "permissions": [
+    "read:minecraft"
+  ],
+  "page": {
+    "title": {
+      "de": "Bestenliste",
+      "en": "Leaderboard"
+    },
+    "icon": "trophy",
+    "file": "page/index.html"
+  },
+  "widget": {
+    "title": {
+      "de": "Bestenliste",
+      "en": "Leaderboard"
+    },
+    "file": "widget/index.html",
+    "size": "third"
+  },
+  "version": "1.0.0",
+  "author": "Hostwerk",
+  "homepage": "https://github.com/Passimoritz/hostwerk-ext-player-leaderboard",
+  "license": "MIT",
+  "icon": "icon.svg",
+  "hostwerk": ">=2.9.0"
+}

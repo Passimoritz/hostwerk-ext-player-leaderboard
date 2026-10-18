@@ -1,0 +1,14 @@
+{
+  "title": "Player leaderboard",
+  "summary": "{n} players · {week} played in the last 7 days",
+  "allServers": "All servers",
+  "metric.playMs": "Playtime",
+  "metric.sessions": "Visits",
+  "metric.mined": "Mined",
+  "metric.deaths": "Deaths",
+  "servers": "{n} servers",
+  "noServers": "No Minecraft server yet",
+  "noServersHint": "Create a Minecraft server in Hostwerk – as soon as someone plays, the leaderboard shows up here.",
+  "noData": "No play data yet.",
+  "widgetTitle": "Most playtime"
+}
