@@ -8,23 +8,22 @@
     .tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
     .entry { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--hw-line); }
     .entry.top { font-size: 16px; }
-    .place { width: 34px; text-align: center; font-weight: 700; color: var(--hw-muted); }
+    .place { width: 34px; text-align: center; font-weight: 700; color: var(--muted); }
     .value { font-variant-numeric: tabular-nums; font-weight: 650; }
   </style>
 </head>
 <body>
-  <h1 data-i18n="title"></h1>
-  <p class="hw-sub" id="sub"></p>
+  <p class="muted" id="sub"></p>
   <div class="tools">
-    <select class="hw-select" id="server"></select>
-    <div class="hw-row" id="metrics">
-      <button class="hw-btn hw-sm hw-primary" data-m="playMs" data-i18n="metric.playMs"></button>
-      <button class="hw-btn hw-sm" data-m="sessions" data-i18n="metric.sessions"></button>
-      <button class="hw-btn hw-sm" data-m="mined" data-i18n="metric.mined"></button>
-      <button class="hw-btn hw-sm" data-m="deaths" data-i18n="metric.deaths"></button>
+    <select class="select" id="server"></select>
+    <div class="row" id="metrics">
+      <button class="btn sm primary" data-m="playMs" data-i18n="metric.playMs"></button>
+      <button class="btn sm" data-m="sessions" data-i18n="metric.sessions"></button>
+      <button class="btn sm" data-m="mined" data-i18n="metric.mined"></button>
+      <button class="btn sm" data-m="deaths" data-i18n="metric.deaths"></button>
     </div>
   </div>
-  <div class="hw-card" id="list"><div class="hw-skeleton" style="height:120px"></div></div>
+  <div class="card card-pad" id="list"><div class="hw-skeleton" style="height:120px"></div></div>
   <script src="lib.js"></script>
   <script src="app.js"></script>
 </body>
