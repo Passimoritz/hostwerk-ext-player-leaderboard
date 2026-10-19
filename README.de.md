@@ -1,3 +1,5 @@
+![Spieler-Bestenliste](banner.svg)
+
 # Spieler-Bestenliste
 
 Wer am meisten spielt, abbaut oder stirbt – über alle Minecraft-Server zusammen oder je Server. Mit Kachel für die Übersicht.

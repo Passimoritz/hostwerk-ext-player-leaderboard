@@ -1,3 +1,5 @@
+![Player leaderboard](banner.svg)
+
 # Player leaderboard
 
 Who plays, mines or dies the most – across all Minecraft servers or per server. With a dashboard tile.
