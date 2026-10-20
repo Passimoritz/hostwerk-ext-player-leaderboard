@@ -10,5 +10,6 @@
   "noServers": "Noch kein Minecraft-Server",
   "noServersHint": "Lege in Hostwerk einen Minecraft-Server an – sobald jemand spielt, erscheint hier die Bestenliste.",
   "noData": "Noch keine Spieldaten.",
-  "widgetTitle": "Meiste Spielzeit"
+  "widgetTitle": "Meiste Spielzeit",
+  "pick_server": "Server wählen"
 }

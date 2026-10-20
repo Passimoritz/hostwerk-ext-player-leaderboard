@@ -1,3 +1,7 @@
+## 1.2.1
+
+- The server selection has a name for screen readers. / Die Server-Auswahl hat einen Namen für Bildschirmleser.
+
 ## 1.2.0
 
 - New animated icon and a banner for Hostwerk's new extension page, category “games”. / Neues bewegtes Symbol und ein Banner für die neue Erweiterungsseite, Kategorie „games“.
