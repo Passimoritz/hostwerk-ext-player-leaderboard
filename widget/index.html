@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="/ext-sdk.js"></script>
   <style>
-    .row { display: flex; gap: 8px; align-items: center; padding: 3px 0; }
+    .line { display: flex; gap: var(--sp-2); align-items: center; padding: 3px 0; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   </style>
 </head>
 <body>
   <div class="muted small" data-i18n="widgetTitle"></div>
-  <div id="top" style="margin-top:6px"></div>
+  <div id="top" class="widget-top"><div class="hw-skeleton" style="height:60px"></div></div>
+  <script src="../page/live.js"></script>
   <script src="../page/lib.js"></script>
   <script src="widget.js"></script>
 </body>

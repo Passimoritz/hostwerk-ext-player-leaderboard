@@ -8,11 +8,12 @@
     "en": "Player leaderboard"
   },
   "description": {
-    "de": "Wer am meisten spielt, abbaut oder stirbt – über alle Minecraft-Server zusammen oder je Server. Mit Kachel für die Übersicht.",
-    "en": "Who plays, mines or dies the most – across all Minecraft servers or per server. With a dashboard tile."
+    "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat. Mit Stream-Ansicht und Kachel für die Übersicht.",
+    "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month. With a stream view and a dashboard tile."
   },
   "permissions": [
-    "read:minecraft"
+    "read:minecraft",
+    "storage"
   ],
   "page": {
     "title": {
@@ -22,9 +23,32 @@
     "icon": "trophy",
     "file": "page/index.html",
     "description": {
-      "de": "Wer am meisten spielt, abbaut oder stirbt – über alle Minecraft-Server zusammen oder je Server. Mit Kachel für die Übersicht.",
-      "en": "Who plays, mines or dies the most – across all Minecraft servers or per server. With a dashboard tile."
-    }
+      "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat. Mit Stream-Ansicht und Kachel für die Übersicht.",
+      "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month. With a stream view and a dashboard tile."
+    },
+    "nav": {
+      "group": "server",
+      "after": "mc",
+      "order": 61
+    },
+    "tabs": [
+      {
+        "id": "board",
+        "title": {
+          "de": "Bestenliste",
+          "en": "Leaderboard"
+        },
+        "icon": "trophy"
+      },
+      {
+        "id": "stream",
+        "title": {
+          "de": "Stream-Ansicht",
+          "en": "Stream view"
+        },
+        "icon": "tv"
+      }
+    ]
   },
   "widget": {
     "title": {
@@ -34,11 +58,125 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.2.1",
+  "version": "1.3.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-player-leaderboard",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
-  "hostwerk": ">=2.9.0"
+  "hostwerk": ">=2.11.0",
+  "settings": [
+    {
+      "key": "metric",
+      "type": "select",
+      "label": {
+        "de": "Standard-Kennzahl",
+        "en": "Default metric"
+      },
+      "default": "playMs",
+      "options": [
+        {
+          "value": "playMs",
+          "label": {
+            "de": "Spielzeit",
+            "en": "Playtime"
+          }
+        },
+        {
+          "value": "sessions",
+          "label": {
+            "de": "Besuche",
+            "en": "Visits"
+          }
+        },
+        {
+          "value": "mined",
+          "label": {
+            "de": "Abgebaut",
+            "en": "Mined"
+          }
+        },
+        {
+          "value": "deaths",
+          "label": {
+            "de": "Tode",
+            "en": "Deaths"
+          }
+        },
+        {
+          "value": "mobKills",
+          "label": {
+            "de": "Monster besiegt",
+            "en": "Mobs killed"
+          }
+        },
+        {
+          "value": "playerKills",
+          "label": {
+            "de": "Spieler besiegt",
+            "en": "Players killed"
+          }
+        },
+        {
+          "value": "distanceKm",
+          "label": {
+            "de": "Strecke",
+            "en": "Distance"
+          }
+        },
+        {
+          "value": "crafted",
+          "label": {
+            "de": "Hergestellt",
+            "en": "Crafted"
+          }
+        }
+      ]
+    },
+    {
+      "key": "limit",
+      "type": "select",
+      "label": {
+        "de": "Plätze in der Liste",
+        "en": "Places in the list"
+      },
+      "default": 20,
+      "options": [
+        {
+          "value": 10,
+          "label": {
+            "de": "Top 10",
+            "en": "Top 10"
+          }
+        },
+        {
+          "value": 20,
+          "label": {
+            "de": "Top 20",
+            "en": "Top 20"
+          }
+        },
+        {
+          "value": 50,
+          "label": {
+            "de": "Top 50",
+            "en": "Top 50"
+          }
+        },
+        {
+          "value": 100,
+          "label": {
+            "de": "Top 100",
+            "en": "Top 100"
+          }
+        }
+      ]
+    }
+  ],
+  "settingsTab": "extensions",
+  "allowExtensions": {
+    "*": [
+      "tabs"
+    ]
+  }
 }

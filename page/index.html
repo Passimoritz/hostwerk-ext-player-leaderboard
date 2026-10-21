@@ -5,25 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="/ext-sdk.js"></script>
   <style>
-    .tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 14px 0; }
-    .entry { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--hw-line); }
-    .entry.top { font-size: 16px; }
-    .place { width: 34px; text-align: center; font-weight: 700; color: var(--muted); }
+    .tools { display: flex; gap: var(--sp-2); flex-wrap: wrap; align-items: center; margin: var(--sp-3) 0; }
+    .entry { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3); border-bottom: 1px solid var(--line); }
+    .entry.top { font-size: var(--fs-lg); }
+    .place { width: var(--control-h); text-align: center; font-weight: 700; color: var(--muted); }
     .value { font-variant-numeric: tabular-nums; font-weight: 650; }
+    .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    /* Stream-Ansicht: ohne Bedienelemente, große Schrift – zum Abfilmen mit OBS (Fenster- oder Bildschirmaufnahme) */
+    body.stream .tools, body.stream #sub { display: none; }
+    body.stream #list { background: transparent; border: 0; box-shadow: none; }
+    .entry.big { font-size: var(--fs-2xl); padding: var(--sp-3) var(--sp-4); }
+    .entry.big.top { font-size: var(--fs-3xl); }
   </style>
 </head>
 <body>
   <p class="muted" id="sub"></p>
   <div class="tools">
-    <select class="select" id="server" data-i18n-title="pick_server" title="Server"></select>
-    <div class="row" id="metrics">
-      <button class="btn sm primary" data-m="playMs" data-i18n="metric.playMs"></button>
-      <button class="btn sm" data-m="sessions" data-i18n="metric.sessions"></button>
-      <button class="btn sm" data-m="mined" data-i18n="metric.mined"></button>
-      <button class="btn sm" data-m="deaths" data-i18n="metric.deaths"></button>
+    <select class="select" id="server" aria-label="Server"></select>
+    <div class="row-tight" id="metrics" role="group">
+      <button type="button" class="btn sm primary" data-m="playMs" data-i18n="metric.playMs"></button>
+      <button type="button" class="btn sm" data-m="sessions" data-i18n="metric.sessions"></button>
+      <button type="button" class="btn sm" data-m="mined" data-i18n="metric.mined"></button>
+      <button type="button" class="btn sm" data-m="deaths" data-i18n="metric.deaths"></button>
+      <button type="button" class="btn sm" data-m="mobKills" data-i18n="metric.mobKills"></button>
+      <button type="button" class="btn sm" data-m="playerKills" data-i18n="metric.playerKills"></button>
+      <button type="button" class="btn sm" data-m="distanceKm" data-i18n="metric.distanceKm"></button>
+      <button type="button" class="btn sm" data-m="crafted" data-i18n="metric.crafted"></button>
     </div>
+    <div class="row-tight" id="periods" role="group">
+      <button type="button" class="btn sm primary" data-d="0" data-i18n="period.all"></button>
+      <button type="button" class="btn sm" data-d="30" data-i18n="period.month"></button>
+      <button type="button" class="btn sm" data-d="7" data-i18n="period.week"></button>
+    </div>
+    <span id="since"></span>
   </div>
   <div class="card card-pad" id="list"><div class="hw-skeleton" style="height:120px"></div></div>
+  <script src="live.js"></script>
   <script src="lib.js"></script>
   <script src="app.js"></script>
 </body>
