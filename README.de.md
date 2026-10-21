@@ -8,6 +8,7 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 
 ## Funktionen
 
+- **Wo:** Minecraft-Server → Spieler (Abschnitt) und Übersichtskachel – seit 1.5.1 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
 - **Gleich dort, wo man sie braucht:** Abschnitt im Reiter „Spieler“ jedes Minecraft-Servers (Hostwerk mit SDK 3.2) – die Liste dieses Servers mit Suche und Profil, ohne eigenen Reiter
 - **Spielersuche, Profilkarte** mit allen Werten, letztem Besuch, Servern, **Abzeichen** (Stammspieler, Bergarbeiter, Jäger, Wanderer, Handwerker, Überlebenskünstler … in drei Stufen, nur aus dem, was Minecraft und Hostwerk ohnehin zählen) und einem **Verlaufsdiagramm** der gewählten Kennzahl
 - **Als Webseite bereitstellen** (Reiter „Webseite“, Hostwerk mit SDK 3.2): Hostwerk legt eine eigene Seite (HTML + JSON) in einen Unterordner eines deiner Webserver und erneuert sie im gewählten Takt – Überschrift, Akzentfarbe, hell/dunkel/wie das System, Sprache, Kennzahlen, Plätze, Zeitraum, Server und **Spielernamen wie im Spiel, gekürzt oder ausgeblendet**. Nur Namen und Zahlen, keine Adressen oder IDs; Besucher brauchen keine Hostwerk-Anmeldung. Webserver zeigen diese Seiten unter „Seiten von Erweiterungen“.

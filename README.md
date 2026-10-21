@@ -8,6 +8,7 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 
 ## Features
 
+- **Where:** Minecraft server → Players (section) and the dashboard tile – no own sidebar entry since 1.5.1; the full page stays under Extensions → Open
 - **Right where you need it:** a section in the “Players” tab of every Minecraft server (Hostwerk with SDK 3.2) – the board of that server with search and profile, without its own tab
 - **Player search, profile card** with every value, last visit, servers, **badges** (regular, miner, hunter, wanderer, crafter, survivor … in three levels, only from what Minecraft and Hostwerk count anyway) and a **history chart** of the chosen value
 - **Provide as a web page** (tab “Web page”, Hostwerk with SDK 3.2): Hostwerk writes an own page (HTML + JSON) into a subfolder of one of your web servers and renews it at the chosen interval – heading, accent colour, light/dark/system, language, values, places, period, server and **player names as in the game, shortened or hidden**. Only names and numbers, no addresses or IDs; no Hostwerk sign-in needed for visitors. Web servers show these pages under “Pages from extensions”.
