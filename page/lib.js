@@ -103,5 +103,19 @@
   /** Bedrock-Spieler über Geyser/Floodgate: Name mit Vorsilbe (Standard „.“) oder Floodgate-UUID (beginnt mit Nullen). */
   function isBedrock(p) { return /^[.*]/.test(String((p && p.name) || '')) || /^0{16}/.test(uuidOf(p || {}) || ''); }
 
-  return { isBedrock, METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf };
+  /**
+   * Bestenliste für die öffentliche Ansicht (/v/player-leaderboard/, OBS) – nur Platz, Name, Wert, Bedrock.
+   * statsByServer wie bei merge() (Minecraft und „game:<id>“), snaps aus dem Speicher der Seite (für days = 7/30).
+   */
+  function board(statsByServer, { snaps = [], metric = 'playMs', days = 0, server = '', limit = 10, now = Date.now() } = {}) {
+    const m = KEYS.includes(metric) ? metric : 'playMs';
+    const d = [7, 30].includes(Number(days)) ? Number(days) : 0;
+    const all = merge(statsByServer);
+    const chosen = server ? merge({ [server]: (statsByServer || {})[server] }) : all;
+    const per = period(chosen, snaps, d, now);
+    const n = Math.max(1, Math.min(50, Number(limit) || 10));
+    return { metric: m, days: d, since: per.since, players: rank(per.players, m, n).map((p) => ({ rank: p.rank, name: p.name, value: p.value, bedrock: isBedrock(p) })) };
+  }
+
+  return { isBedrock, METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf, board };
 }));

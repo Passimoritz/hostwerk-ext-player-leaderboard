@@ -1,3 +1,9 @@
+## 1.4.0
+
+- Game servers too: for the running servers of the extension “Game servers” a small server part counts playtime and visits through the Steam query once a minute (permission `read:games`); they appear in the server picker, in “all servers”, in the periods and on the tile. Game players are kept apart per server (a “Steve” in Valheim is not the Minecraft Steve). / Auch Spiele-Server: Für die laufenden Server der Erweiterung „Spiele-Server“ zählt ein kleiner Server-Teil jede Minute Spielzeit und Besuche über die Steam-Abfrage (Recht `read:games`); sie stehen in der Server-Auswahl, bei „alle Server“, in den Zeiträumen und auf der Kachel. Spiele-Spieler bleiben je Server getrennt.
+- Real OBS view: own address without sign-in (`/v/player-leaderboard/`, permission `share:view`) – transparent, without Hostwerk around it; the stream tab shows the address with metric, period and server already in it. Off until you switch on “Share the stream view without sign-in”. Options: `?metric=`, `?days=7|30`, `?server=`, `?limit=`, `?theme=light`, `?size=`, `?title=0`, `?lang=de`. / Echte OBS-Ansicht: eigene Adresse ohne Anmeldung (`/v/player-leaderboard/`, Recht `share:view`) – durchsichtig, ohne Hostwerk drumherum; der Stream-Reiter zeigt die Adresse mit Kennzahl, Zeitraum und Server. Aus, bis du „Stream-Ansicht ohne Anmeldung freigeben“ einschaltest.
+- Needs Hostwerk 3.0 (SDK 3.0). / Braucht Hostwerk 3.0 (SDK 3.0).
+
 ## 1.3.0
 
 - Periods “30 days” and “7 days”: the extension keeps one snapshot of the totals per day (own storage, up to 40 days). / Zeiträume „30 Tage“ und „7 Tage“: die Erweiterung merkt sich einen Stand je Tag (eigener Speicher, höchstens 40 Tage).

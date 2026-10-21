@@ -2,7 +2,7 @@
 
 # Player leaderboard
 
-Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month. With a stream view and a dashboard tile.
+Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile.
 
 An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension.
 
@@ -12,6 +12,8 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 - Periods: all time, last 30 days, last 7 days – the extension remembers the totals once a day (in its own storage, up to 40 days)
 - All servers together or one server; a person is recognised by their UUID – even after a name change; Bedrock players (Geyser/Floodgate) get a badge
 - “Stream view” tab: no controls, large text – for capturing with OBS (window or display capture)
+- Own address for OBS without sign-in (`/v/player-leaderboard/`): transparent, without Hostwerk around it, for a “Browser” source – only after you switch on “Share the stream view without sign-in”. Options: `?metric=`, `?days=7|30`, `?server=`, `?limit=`, `?theme=light`, `?size=` (font size), `?title=0`, `?lang=de`
+- Game servers (extension “Game servers”): playtime and visits counted through the Steam query once a minute
 - Settings (under Settings → Extensions): default metric and number of places
 - Dashboard tile with the top three
 - Medals with text for screen readers, error state with “Try again”
@@ -25,7 +27,12 @@ In Hostwerk: **Apps → Extensions → Marketplace** → “Player leaderboard�
 ## Permissions
 
 - Read Minecraft servers, players and stats
-- Store own data (daily snapshots for the week and month)
+- Read game servers and their players (`read:games`)
+- Offer a public view for OBS (`share:view`, off until you share it)
+- A small server part (`native`) for game server playtime and the public view
+- Store own data (daily snapshots for the week and month, game server playtime)
+
+Needs Hostwerk 3.0 or newer.
 
 Pages run isolated (own origin, no external scripts); anything that changes something asks you first.
 

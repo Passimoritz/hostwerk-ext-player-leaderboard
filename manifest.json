@@ -8,13 +8,24 @@
     "en": "Player leaderboard"
   },
   "description": {
-    "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat. Mit Stream-Ansicht und Kachel für die Übersicht.",
-    "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month. With a stream view and a dashboard tile."
+    "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.",
+    "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile."
   },
   "permissions": [
     "read:minecraft",
-    "storage"
+    "read:games",
+    "share:view",
+    "storage",
+    "native"
   ],
+  "backend": "server/index.js",
+  "publicView": {
+    "file": "page/obs.html",
+    "title": {
+      "de": "Bestenliste (OBS)",
+      "en": "Leaderboard (OBS)"
+    }
+  },
   "page": {
     "title": {
       "de": "Bestenliste",
@@ -23,8 +34,8 @@
     "icon": "trophy",
     "file": "page/index.html",
     "description": {
-      "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat. Mit Stream-Ansicht und Kachel für die Übersicht.",
-      "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month. With a stream view and a dashboard tile."
+      "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.",
+      "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile."
     },
     "nav": {
       "group": "server",
@@ -58,13 +69,14 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.3.0",
+  "version": "1.4.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-player-leaderboard",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
-  "hostwerk": ">=2.11.0",
+  "hostwerk": ">=3.0.0",
+  "sdkVersion": "3.0",
   "settings": [
     {
       "key": "metric",
@@ -171,6 +183,15 @@
           }
         }
       ]
+    },
+    {
+      "key": "publicView",
+      "type": "switch",
+      "label": {
+        "de": "Stream-Ansicht ohne Anmeldung freigeben (eigene Adresse für OBS – zeigt Spielernamen und Werte)",
+        "en": "Share the stream view without sign-in (own address for OBS – shows player names and values)"
+      },
+      "default": false
     }
   ],
   "settingsTab": "extensions",

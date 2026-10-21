@@ -17,8 +17,8 @@
   "km": "{n} km",
   "place": "Platz {n}",
   "servers": "{n} Server",
-  "noServers": "Noch kein Minecraft-Server",
-  "noServersHint": "Lege in Hostwerk einen Minecraft-Server an – sobald jemand spielt, erscheint hier die Bestenliste.",
+  "noServers": "Noch kein Minecraft- oder Spiele-Server",
+  "noServersHint": "Lege in Hostwerk einen Minecraft-Server an (oder einen Spiele-Server mit der Erweiterung „Spiele-Server“) – sobald jemand spielt, erscheint hier die Bestenliste.",
   "noData": "Noch keine Spieldaten.",
   "noDataPeriod": "In diesem Zeitraum noch nichts passiert.",
   "noDataPeriodHint": "Die Erweiterung merkt sich einmal am Tag den Stand. Ein paar Tage nach der Installation gibt es hier Werte für Woche und Monat.",
@@ -27,5 +27,10 @@
   "loadError": "Bestenliste konnte nicht geladen werden",
   "retry": "Erneut versuchen",
   "bedrock": "Bedrock",
-  "bedrockTitle": "Spielt über die Bedrock-Brücke (Handy, Konsole, Windows-Edition)"
+  "bedrockTitle": "Spielt über die Bedrock-Brücke (Handy, Konsole, Windows-Edition)",
+  "settings": "Einstellungen",
+  "obsTitle": "Eigene Adresse für OBS",
+  "obsHint": "In OBS als „Browser“-Quelle einfügen – durchsichtig, ohne Hostwerk drumherum. Kennzahl, Zeitraum und Server von oben sind schon drin; dazu gehen ?theme=light, ?size=20, ?limit=5, ?title=0.",
+  "obsOff": "Für OBS gibt es eine eigene Adresse ohne Anmeldung. Schalte dafür in den Einstellungen „Stream-Ansicht ohne Anmeldung freigeben“ ein – dann sieht jeder mit der Adresse die Bestenliste.",
+  "copyLink": "Adresse kopieren"
 }

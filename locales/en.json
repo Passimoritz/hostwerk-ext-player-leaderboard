@@ -17,8 +17,8 @@
   "km": "{n} km",
   "place": "Place {n}",
   "servers": "{n} servers",
-  "noServers": "No Minecraft server yet",
-  "noServersHint": "Create a Minecraft server in Hostwerk – as soon as someone plays, the leaderboard shows up here.",
+  "noServers": "No Minecraft or game server yet",
+  "noServersHint": "Create a Minecraft server in Hostwerk (or a game server with the extension “Game servers”) – as soon as someone plays, the leaderboard shows up here.",
   "noData": "No play data yet.",
   "noDataPeriod": "Nothing happened in this period yet.",
   "noDataPeriodHint": "The extension remembers the totals once a day. A few days after installing there are values for the week and the month.",
@@ -27,5 +27,10 @@
   "loadError": "Could not load the leaderboard",
   "retry": "Try again",
   "bedrock": "Bedrock",
-  "bedrockTitle": "Plays through the Bedrock bridge (phone, console, Windows edition)"
+  "bedrockTitle": "Plays through the Bedrock bridge (phone, console, Windows edition)",
+  "settings": "Settings",
+  "obsTitle": "Own address for OBS",
+  "obsHint": "Add it in OBS as a “Browser” source – transparent, without Hostwerk around it. Metric, period and server from above are already in it; also possible: ?theme=light, ?size=20, ?limit=5, ?title=0.",
+  "obsOff": "There is an own address for OBS without sign-in. Switch on “Share the stream view without sign-in” in the settings – then anyone with the address sees the leaderboard.",
+  "copyLink": "Copy address"
 }

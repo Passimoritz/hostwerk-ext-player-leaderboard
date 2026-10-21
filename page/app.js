@@ -1,5 +1,6 @@
 // Spieler-Bestenliste – Seite: Spielzeit, Besuche, Abgebautes, Tode und mehr über alle (oder einen) Minecraft-Server,
 // gesamt oder für die letzte Woche/den letzten Monat (Schnappschüsse im Speicher der Erweiterung).
+// Spiele-Server (Erweiterung „Spiele-Server“): Spielzeit und Besuche zählt der Server-Teil über die Steam-Abfrage.
 const { html, t } = Hostwerk;
 const B = Leaderboard;
 const MEDAL = ['🥇', '🥈', '🥉'];
@@ -42,12 +43,17 @@ async function load(force = false) {
   if (!metric) metric = B.METRICS.includes(st.metric) ? st.metric : 'playMs';
   const limit = Math.max(3, Math.min(100, Number(st.limit) || 20));
   const list = await Hostwerk.get('/mc/servers');
-  servers = (Array.isArray(list) ? list : []).map((s) => ({ id: s.id, name: s.name }));
+  const mc = (Array.isArray(list) ? list : []).map((s) => ({ id: s.id, name: s.name }));
+  // Ohne Spiele-Server (oder ältere Hostwerk-Fassung) einfach keine
+  const gb = await Hostwerk.backend('GET', '/games-board').catch(() => null);
+  const games = (gb && Array.isArray(gb.servers) ? gb.servers : []).map((s) => ({ id: s.id, name: s.game && s.game !== s.name ? `${s.name} · ${s.game}` : s.name }));
+  servers = [...mc, ...games];
   drawPicker(); drawSeg('metrics', 'data-m', metric); drawSeg('periods', 'data-d', days);
   if (!servers.length) { $('sub').textContent = ''; Hostwerk.render('#list', html`<div class="empty"><h3>${t('noServers')}</h3><p class="muted small">${t('noServersHint')}</p></div>`); return; }
   // Gesamtwerte aller Server (für Schnappschüsse immer alle), angezeigt wird der gewählte
   const all = {};
-  await Promise.all(servers.map(async (s) => { all[s.id] = await statsOf(s.id, force); }));
+  await Promise.all(mc.map(async (s) => { all[s.id] = await statsOf(s.id, force); }));
+  if (gb && gb.stats) Object.assign(all, gb.stats);
   if (!snapsLoaded) { try { snaps = (await Hostwerk.storage.get('snapshots')) || []; } catch { snaps = []; } snapsLoaded = true; }
   const merged = B.merge(all);
   const next = B.fit(B.addSnapshot(snaps, merged));
@@ -67,12 +73,28 @@ const reload = (force) => Live.guard(Hostwerk, '#list', () => load(force));
 function showTab(id) {
   tab = id === 'stream' ? 'stream' : 'board';
   document.body.classList.toggle('stream', tab === 'stream');
+  drawObs();
   reload();
 }
 
-$('server').addEventListener('change', (e) => { server = e.target.value; reload(); });
-$('metrics').addEventListener('click', (e) => { const b = e.target.closest('button[data-m]'); if (!b) return; metric = b.dataset.m; reload(); });
-$('periods').addEventListener('click', (e) => { const b = e.target.closest('button[data-d]'); if (!b) return; days = Number(b.dataset.d) || 0; reload(); });
+/** Eigene Adresse für OBS (öffentliche Ansicht) – nur im Reiter „Stream-Ansicht“. */
+const publicUrl = () => { let origin = ''; try { origin = new URL(document.referrer).origin; } catch { /* steht auch in der Detailansicht der Erweiterung */ } return `${origin}/v/player-leaderboard/?metric=${metric || 'playMs'}${days ? `&days=${days}` : ''}${server ? `&server=${encodeURIComponent(server)}` : ''}`; };
+async function drawObs() {
+  if (tab !== 'stream') return Hostwerk.render('#obs', '');
+  const st = await settings();
+  Hostwerk.render('#obs', html`<div class="card card-pad stack obs-card"><b>${t('obsTitle')}</b>${st.publicView
+    ? html`<div class="row-tight"><code class="grow ellipsis">${publicUrl()}</code><button type="button" class="btn sm" data-copy-url>${t('copyLink')}</button></div><p class="muted small">${t('obsHint')}</p>`
+    : html`<p class="muted small">${t('obsOff')}</p><div><button type="button" class="btn sm" data-open-settings>${t('settings')}</button></div>`}</div>`);
+  return undefined;
+}
+document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-copy-url]')) Hostwerk.copy(publicUrl()).catch(() => {});
+  if (e.target.closest('[data-open-settings]')) Hostwerk.settings.open().catch(() => {});
+});
+
+$('server').addEventListener('change', (e) => { server = e.target.value; drawObs(); reload(); });
+$('metrics').addEventListener('click', (e) => { const b = e.target.closest('button[data-m]'); if (!b) return; metric = b.dataset.m; drawObs(); reload(); });
+$('periods').addEventListener('click', (e) => { const b = e.target.closest('button[data-d]'); if (!b) return; days = Number(b.dataset.d) || 0; drawObs(); reload(); });
 
 Hostwerk.ready().then((info) => {
   showTab(info.tab);
@@ -80,7 +102,7 @@ Hostwerk.ready().then((info) => {
   // Kam oder ging jemand, nur diesen Server neu holen – und höchstens alle 10 s neu zeichnen
   const changed = Live.throttle(() => reload(), 10000);
   Hostwerk.on('minecraft', (s) => { if (s && s.id) cache.delete(s.id); changed(); });
-  Hostwerk.on('settings', () => { metric = null; reload(); });
+  Hostwerk.on('settings', () => { metric = null; drawObs(); reload(); });
   Hostwerk.on('lang', () => reload());
   Live.every(60000, () => reload(true));
 });
