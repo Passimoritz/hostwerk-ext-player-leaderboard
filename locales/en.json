@@ -25,5 +25,7 @@
   "widgetTitle": "Top of the board",
   "pick_server": "Choose server",
   "loadError": "Could not load the leaderboard",
-  "retry": "Try again"
+  "retry": "Try again",
+  "bedrock": "Bedrock",
+  "bedrockTitle": "Plays through the Bedrock bridge (phone, console, Windows edition)"
 }

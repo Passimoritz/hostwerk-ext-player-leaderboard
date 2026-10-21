@@ -25,5 +25,7 @@
   "widgetTitle": "Ganz vorn",
   "pick_server": "Server wählen",
   "loadError": "Bestenliste konnte nicht geladen werden",
-  "retry": "Erneut versuchen"
+  "retry": "Erneut versuchen",
+  "bedrock": "Bedrock",
+  "bedrockTitle": "Spielt über die Bedrock-Brücke (Handy, Konsole, Windows-Edition)"
 }

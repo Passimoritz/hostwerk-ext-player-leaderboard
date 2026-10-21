@@ -10,7 +10,7 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 
 - Ranking by playtime, visits, mined blocks, deaths, mobs and players killed, distance or crafted items
 - Periods: all time, last 30 days, last 7 days – the extension remembers the totals once a day (in its own storage, up to 40 days)
-- All servers together or one server; a person is recognised by their UUID – even after a name change
+- All servers together or one server; a person is recognised by their UUID – even after a name change; Bedrock players (Geyser/Floodgate) get a badge
 - “Stream view” tab: no controls, large text – for capturing with OBS (window or display capture)
 - Settings (under Settings → Extensions): default metric and number of places
 - Dashboard tile with the top three

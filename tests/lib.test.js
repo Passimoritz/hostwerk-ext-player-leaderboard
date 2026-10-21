@@ -74,3 +74,8 @@ test('Schnappschüsse passen in den Speicher', () => {
   assert.ok(JSON.stringify(fitted).length <= 50 * 1024 && fitted.length >= 1);
   assert.strictEqual(fitted[fitted.length - 1].day, snaps[snaps.length - 1].day, 'der neueste bleibt');
 });
+test('Bedrock-Spieler erkennen (Floodgate-Vorsilbe oder -UUID)', () => {
+  assert.ok(B.isBedrock({ name: '.Handyheld' }));
+  assert.ok(B.isBedrock({ name: 'x', world: { uuid: '00000000-0000-0000-0009-01f2a3b4c5d6' } }));
+  assert.ok(!B.isBedrock({ name: 'Steve', world: { uuid: '069a79f4-44e9-4726-a5be-fca90e38aaf5' } }));
+});

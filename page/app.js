@@ -34,7 +34,7 @@ function drawSeg(id, attr, cur) { for (const b of document.querySelectorAll(`#${
 function entry(p, big) {
   // Medaille nur als Bild, der Platz als Text für Bildschirmleser
   const place = html`<span class="place"><span aria-hidden="true">${p.rank <= 3 ? MEDAL[p.rank - 1] : p.rank}</span><span class="sr">${t('place', { n: p.rank })}</span></span>`;
-  return html`<div class="entry ${p.rank <= 3 ? 'top' : ''} ${big ? 'big' : ''}">${place}<b class="grow ellipsis">${p.name}</b>${!big && p.servers.length > 1 ? html`<span class="badge">${t('servers', { n: p.servers.length })}</span>` : ''}<span class="value">${fmtValue(metric, p.value)}</span></div>`;
+  return html`<div class="entry ${p.rank <= 3 ? 'top' : ''} ${big ? 'big' : ''}">${place}<b class="grow ellipsis">${p.name}</b>${B.isBedrock(p) ? html`<span class="badge" title="${t('bedrockTitle')}">${t('bedrock')}</span>` : ''}${!big && p.servers.length > 1 ? html`<span class="badge">${t('servers', { n: p.servers.length })}</span>` : ''}<span class="value">${fmtValue(metric, p.value)}</span></div>`;
 }
 
 async function load(force = false) {

@@ -100,5 +100,8 @@
   /** Älteste Schnappschüsse weglassen, bis die Liste unter max Bytes bleibt. */
   function fit(snaps, max = 200 * 1024) { let s = [...(snaps || [])]; while (s.length > 1 && sizeOf(s) > max) s = s.slice(1); return s; }
 
-  return { METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf };
+  /** Bedrock-Spieler über Geyser/Floodgate: Name mit Vorsilbe (Standard „.“) oder Floodgate-UUID (beginnt mit Nullen). */
+  function isBedrock(p) { return /^[.*]/.test(String((p && p.name) || '')) || /^0{16}/.test(uuidOf(p || {}) || ''); }
+
+  return { isBedrock, METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf };
 }));

@@ -1,7 +1,7 @@
 ## 1.3.0
 
 - Periods “30 days” and “7 days”: the extension keeps one snapshot of the totals per day (own storage, up to 40 days). / Zeiträume „30 Tage“ und „7 Tage“: die Erweiterung merkt sich einen Stand je Tag (eigener Speicher, höchstens 40 Tage).
-- More metrics from Minecraft’s own statistics: mobs and players killed, distance, crafted items. / Weitere Kennzahlen aus Minecrafts eigener Statistik: besiegte Monster und Spieler, Strecke, Hergestelltes.
+- More metrics from Minecraft’s own statistics: mobs and players killed, distance, crafted items. Bedrock players (Geyser/Floodgate) get a badge. / Weitere Kennzahlen aus Minecrafts eigener Statistik: besiegte Monster und Spieler, Strecke, Hergestelltes. Bedrock-Spieler (Geyser/Floodgate) bekommen ein Abzeichen.
 - Players are merged by UUID, so a name change no longer splits them; the newest name is shown. / Spieler werden über die UUID zusammengeführt – ein Namenswechsel trennt sie nicht mehr; angezeigt wird der neueste Name.
 - “Stream view” tab with large text and no controls (for OBS window capture). / Reiter „Stream-Ansicht“ mit großer Schrift ohne Bedienelemente (für die Fensteraufnahme in OBS).
 - Settings: default metric and number of places (Settings → Extensions). / Einstellungen: Standard-Kennzahl und Zahl der Plätze (Einstellungen → Erweiterungen).

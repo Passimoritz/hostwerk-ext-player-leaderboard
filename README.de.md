@@ -10,7 +10,7 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 
 - Rangliste nach Spielzeit, Besuchen, abgebauten Blöcken, Toden, besiegten Monstern und Spielern, Strecke oder Hergestelltem
 - Zeiträume: gesamt, letzte 30 Tage, letzte 7 Tage – die Erweiterung merkt sich einmal am Tag den Stand (im eigenen Speicher, höchstens 40 Tage)
-- Alle Server zusammen oder ein Server; eine Person wird über ihre UUID erkannt – auch nach einem Namenswechsel
+- Alle Server zusammen oder ein Server; eine Person wird über ihre UUID erkannt – auch nach einem Namenswechsel; Bedrock-Spieler (Geyser/Floodgate) bekommen ein Abzeichen
 - Reiter „Stream-Ansicht“: ohne Bedienelemente, große Schrift – zum Abfilmen mit OBS (Fenster- oder Bildschirmaufnahme)
 - Einstellungen (unter Einstellungen → Erweiterungen): Standard-Kennzahl und Zahl der Plätze
 - Kachel für die Übersicht mit den ersten drei
