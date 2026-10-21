@@ -1,3 +1,9 @@
+## 1.5.0
+
+- Section in the “Players” tab of every Minecraft server (Hostwerk with SDK 3.2): the board of that server with search and profile. / Abschnitt im Reiter „Spieler“ jedes Minecraft-Servers: Liste dieses Servers mit Suche und Profil.
+- Player search, profile card with every value, badges in three levels and a history chart from the daily snapshots. / Spielersuche, Profilkarte mit allen Werten, Abzeichen in drei Stufen und Verlaufsdiagramm.
+- Provide as a web page: own page (HTML + JSON) in a subfolder of a web server, renewed at an interval, with heading, colours, light/dark, language, values, places, period and player names as in the game, shortened or hidden (Hostwerk with SDK 3.2, `host.sites`). / Als Webseite bereitstellen – mit Datenschutz-Wahl für Spielernamen.
+
 ## 1.4.0
 
 - Game servers too: for the running servers of the extension “Game servers” a small server part counts playtime and visits through the Steam query once a minute (permission `read:games`); they appear in the server picker, in “all servers”, in the periods and on the tile. Game players are kept apart per server (a “Steve” in Valheim is not the Minecraft Steve). / Auch Spiele-Server: Für die laufenden Server der Erweiterung „Spiele-Server“ zählt ein kleiner Server-Teil jede Minute Spielzeit und Besuche über die Steam-Abfrage (Recht `read:games`); sie stehen in der Server-Auswahl, bei „alle Server“, in den Zeiträumen und auf der Kachel. Spiele-Spieler bleiben je Server getrennt.

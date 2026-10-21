@@ -117,5 +117,43 @@
     return { metric: m, days: d, since: per.since, players: rank(per.players, m, n).map((p) => ({ rank: p.rank, name: p.name, value: p.value, bedrock: isBedrock(p) })) };
   }
 
-  return { isBedrock, METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf, board };
+  /* ---------- 1.5: Abzeichen, Verlauf, Suche, Datenschutz ---------- */
+  const HOUR = 3600000;
+  /**
+   * Abzeichen aus den Gesamtwerten (nur aus dem, was Minecraft und Hostwerk ohnehin zählen – keine Plugins nötig).
+   * → [{ id, level }] – level 1–3 (Bronze/Silber/Gold), Reihenfolge fest
+   */
+  const BADGES = [
+    { id: 'playtime', get: (p) => (p.playMs || 0) / HOUR, steps: [10, 100, 500] },
+    { id: 'regular', get: (p) => p.sessions || 0, steps: [10, 50, 200] },
+    { id: 'miner', get: (p) => w(p, 'mined'), steps: [1000, 10000, 100000] },
+    { id: 'hunter', get: (p) => w(p, 'mobKills'), steps: [100, 1000, 10000] },
+    { id: 'wanderer', get: (p) => w(p, 'distanceKm'), steps: [10, 100, 1000] },
+    { id: 'crafter', get: (p) => w(p, 'crafted'), steps: [500, 5000, 50000] },
+    { id: 'survivor', get: (p) => ((p.playMs || 0) >= 10 * HOUR ? (p.playMs / HOUR) / Math.max(1, w(p, 'deaths')) : 0), steps: [5, 20, 100] }, // Stunden je Tod
+  ];
+  function badges(p) {
+    const out = [];
+    for (const b of BADGES) { const v = b.get(p || {}); const level = b.steps.filter((s) => v >= s).length; if (level) out.push({ id: b.id, level }); }
+    return out;
+  }
+  /** Verlauf einer Kennzahl für einen Spieler aus den täglichen Schnappschüssen: [{ day, value }] (älteste zuerst). */
+  function history(snaps, key, metric = 'playMs') {
+    const i = KEYS.indexOf(metric); if (i < 0) return [];
+    return (Array.isArray(snaps) ? snaps : []).filter((s) => s && s.v && s.v[key]).map((s) => ({ day: s.day, value: Number(s.v[key][i]) || 0 }));
+  }
+  /** Spielersuche: Teil des Namens, ohne Groß/Klein; leer = alle. */
+  function search(players, q) { const n = String(q || '').trim().toLowerCase(); return n ? (players || []).filter((p) => String(p.name || '').toLowerCase().includes(n)) : (players || []); }
+  /**
+   * Namen für öffentliche Seiten: full = wie im Spiel · short = erste zwei Zeichen + … · hidden = „Spieler 3“.
+   * Bedrock-Vorsilbe (.) bleibt bei short weg, damit niemand am Punkt erkannt wird.
+   */
+  function publicName(name, mode, rank, lang = 'de') {
+    const n = String(name || '?');
+    if (mode === 'hidden') return `${lang === 'en' ? 'Player' : 'Spieler'} ${rank}`;
+    if (mode === 'short') { const c = n.replace(/^[.*]/, ''); return c.length <= 2 ? `${c}…` : `${c.slice(0, 2)}…`; }
+    return n;
+  }
+
+  return { isBedrock, METRICS: KEYS, merge, rank, activeWeek, snapshot, addSnapshot, period, fit, dayKey, uuidOf, board, badges, BADGES: BADGES.map((b) => b.id), history, search, publicName };
 }));

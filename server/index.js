@@ -7,10 +7,12 @@
  *     (für die Seite: Hostwerk.backend('GET', '/games-board'))
  *   GET /api/x/player-leaderboard/pub/board?metric=&days=&server=&limit=   (öffentliche Ansicht /v/player-leaderboard/, share:view)
  *     → { metric, days, since, players: [{ rank, name, value, bedrock }] } – nur mit Einstellung „freigeben“, sonst 403
+ *   GET/POST /site, POST /site/:id/publish, DELETE /site/:id   – „Als Webseite bereitstellen“ (host.sites, SDK 3.2, server/site.js)
  */
 const { source, cached } = require('./source');
 const G = require('./games');
 const B = require('../page/lib.js');
+const S = require('./site');
 
 const POLL_MS = 60000;
 
@@ -58,6 +60,26 @@ function activate(host) {
     res.setHeader('Cache-Control', 'no-store');
     res.json(B.board(await allStats(), { snaps, metric: String(q.metric || st.metric || 'playMs'), days: Number(q.days) || 0, server: q.server ? String(q.server) : '', limit: Number(q.limit) || 10 }));
   });
+
+  // „Als Webseite bereitstellen“ (Hostwerk mit SDK 3.2): Seite + data.json in einen Webserver – ohne host.sites einfach nicht
+  const sites = host.sites && typeof host.sites.register === 'function' ? host.sites : null;
+  if (sites) {
+    sites.register({
+      id: 'board', title: { de: 'Bestenliste', en: 'Leaderboard' }, defaults: S.DEFAULTS,
+      render: async (raw, { lang } = {}) => {
+        const opt = S.options(raw, lang);
+        const d = S.data(await allStats(), (await storeGet('snapshots')) || [], opt);
+        return { 'index.html': S.page(opt), 'data.json': JSON.stringify(d) };
+      },
+    });
+  }
+  // Für die eigene Seite (Reiter „Webseite“): Ziele, eigene Seiten, anlegen/ändern/entfernen/erneuern – Hostwerk prüft alles
+  const need = (res) => { if (sites) return true; res.status(501).json({ error: host.t('Needs a newer Hostwerk (pages in a web server, SDK 3.2).') }); return false; };
+  const fail = (res, e) => res.status(e.status || 400).json({ error: e.message });
+  host.router.get('/site', (req, res) => res.json(sites ? { available: true, targets: sites.targets(), list: sites.list(), defaults: S.DEFAULTS } : { available: false, targets: [], list: [], defaults: S.DEFAULTS }));
+  host.router.post('/site', async (req, res) => { if (!need(res)) return; try { const b = req.body || {}; res.json(await sites.save({ id: b.id || undefined, kind: 'board', web: b.web, vhost: b.vhost || null, sub: b.sub, title: b.title, interval: b.interval, on: b.on, options: S.options(b.options, host.lang()) })); } catch (e) { fail(res, e); } });
+  host.router.post('/site/:id/publish', async (req, res) => { if (!need(res)) return; try { res.json(await sites.publish(req.params.id)); } catch (e) { fail(res, e); } });
+  host.router.delete('/site/:id', (req, res) => { if (!need(res)) return; try { res.json({ ok: sites.remove(req.params.id) }); } catch (e) { fail(res, e); } });
 
   return { poll };
 }

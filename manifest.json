@@ -8,8 +8,8 @@
     "en": "Player leaderboard"
   },
   "description": {
-    "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.",
-    "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile."
+    "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, mit Spielersuche, Profilkarte, Abzeichen und Verlauf. Direkt im Reiter „Spieler“ jedes Minecraft-Servers, als Stream-Ansicht für OBS und auf Wunsch als eigene Webseite in deinem Webserver.",
+    "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, with player search, profile card, badges and history. Right in the “Players” tab of every Minecraft server, as a stream view for OBS and, if you like, as an own web page in your web server."
   },
   "permissions": [
     "read:minecraft",
@@ -34,8 +34,8 @@
     "icon": "trophy",
     "file": "page/index.html",
     "description": {
-      "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.",
-      "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile."
+      "de": "Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, mit Spielersuche, Profilkarte, Abzeichen und Verlauf. Direkt im Reiter „Spieler“ jedes Minecraft-Servers, als Stream-Ansicht für OBS und auf Wunsch als eigene Webseite in deinem Webserver.",
+      "en": "Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, with player search, profile card, badges and history. Right in the “Players” tab of every Minecraft server, as a stream view for OBS and, if you like, as an own web page in your web server."
     },
     "nav": {
       "group": "server",
@@ -58,6 +58,14 @@
           "en": "Stream view"
         },
         "icon": "tv"
+      },
+      {
+        "id": "site",
+        "title": {
+          "de": "Webseite",
+          "en": "Web page"
+        },
+        "icon": "globe"
       }
     ]
   },
@@ -69,7 +77,7 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-player-leaderboard",
   "license": "MIT",
@@ -198,6 +206,21 @@
   "allowExtensions": {
     "*": [
       "tabs"
+    ]
+  },
+  "contributes": {
+    "sections": [
+      {
+        "id": "board",
+        "title": {
+          "de": "Bestenliste",
+          "en": "Leaderboard"
+        },
+        "icon": "trophy",
+        "on": "mc.players",
+        "file": "page/section.html",
+        "height": 820
+      }
     ]
   }
 }

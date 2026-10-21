@@ -8,6 +8,9 @@ Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostw
 
 ## Funktionen
 
+- **Gleich dort, wo man sie braucht:** Abschnitt im Reiter „Spieler“ jedes Minecraft-Servers (Hostwerk mit SDK 3.2) – die Liste dieses Servers mit Suche und Profil, ohne eigenen Reiter
+- **Spielersuche, Profilkarte** mit allen Werten, letztem Besuch, Servern, **Abzeichen** (Stammspieler, Bergarbeiter, Jäger, Wanderer, Handwerker, Überlebenskünstler … in drei Stufen, nur aus dem, was Minecraft und Hostwerk ohnehin zählen) und einem **Verlaufsdiagramm** der gewählten Kennzahl
+- **Als Webseite bereitstellen** (Reiter „Webseite“, Hostwerk mit SDK 3.2): Hostwerk legt eine eigene Seite (HTML + JSON) in einen Unterordner eines deiner Webserver und erneuert sie im gewählten Takt – Überschrift, Akzentfarbe, hell/dunkel/wie das System, Sprache, Kennzahlen, Plätze, Zeitraum, Server und **Spielernamen wie im Spiel, gekürzt oder ausgeblendet**. Nur Namen und Zahlen, keine Adressen oder IDs; Besucher brauchen keine Hostwerk-Anmeldung. Webserver zeigen diese Seiten unter „Seiten von Erweiterungen“.
 - Rangliste nach Spielzeit, Besuchen, abgebauten Blöcken, Toden, besiegten Monstern und Spielern, Strecke oder Hergestelltem
 - Zeiträume: gesamt, letzte 30 Tage, letzte 7 Tage – die Erweiterung merkt sich einmal am Tag den Stand (im eigenen Speicher, höchstens 40 Tage)
 - Alle Server zusammen oder ein Server; eine Person wird über ihre UUID erkannt – auch nach einem Namenswechsel; Bedrock-Spieler (Geyser/Floodgate) bekommen ein Abzeichen

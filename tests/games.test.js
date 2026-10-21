@@ -73,7 +73,7 @@ function fakeHost(settings) {
   const store = { games: G.track(null, g(['Odin'], { Odin: 120 }), 1000) };
   const host = {
     id: 'player-leaderboard', sandboxed: true,
-    router: { get: (p, fn) => { routes[p] = fn; } },
+    router: { get: (p, fn) => { routes[p] = fn; }, post: (p, fn) => { routes[`POST ${p}`] = fn; }, delete: (p, fn) => { routes[`DELETE ${p}`] = fn; } },
     publicRouter: { get: (p, fn) => { pub[p] = fn; } },
     storage: { get: async (k) => store[k], set: async (k, v) => { store[k] = v; } },
     settings: async () => settings,

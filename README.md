@@ -8,6 +8,9 @@ An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension
 
 ## Features
 
+- **Right where you need it:** a section in the “Players” tab of every Minecraft server (Hostwerk with SDK 3.2) – the board of that server with search and profile, without its own tab
+- **Player search, profile card** with every value, last visit, servers, **badges** (regular, miner, hunter, wanderer, crafter, survivor … in three levels, only from what Minecraft and Hostwerk count anyway) and a **history chart** of the chosen value
+- **Provide as a web page** (tab “Web page”, Hostwerk with SDK 3.2): Hostwerk writes an own page (HTML + JSON) into a subfolder of one of your web servers and renews it at the chosen interval – heading, accent colour, light/dark/system, language, values, places, period, server and **player names as in the game, shortened or hidden**. Only names and numbers, no addresses or IDs; no Hostwerk sign-in needed for visitors. Web servers show these pages under “Pages from extensions”.
 - Ranking by playtime, visits, mined blocks, deaths, mobs and players killed, distance or crafted items
 - Periods: all time, last 30 days, last 7 days – the extension remembers the totals once a day (in its own storage, up to 40 days)
 - All servers together or one server; a person is recognised by their UUID – even after a name change; Bedrock players (Geyser/Floodgate) get a badge
