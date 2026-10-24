@@ -73,14 +73,17 @@
     "file": "widget/index.html",
     "size": "third"
   },
-  "version": "1.5.1",
+  "version": "1.6.0",
   "author": "Hostwerk",
   "homepage": "https://github.com/Passimoritz/hostwerk-ext-player-leaderboard",
   "license": "MIT",
   "icon": "icon.svg",
   "banner": "banner.svg",
-  "hostwerk": ">=3.0.0",
+  "hostwerk": ">=3.1.0",
   "sdkVersion": "3.0",
+  "requires": {
+    "minecraft": ">=1.0.0"
+  },
   "settings": [
     {
       "key": "metric",
