@@ -4,9 +4,11 @@
 
 Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.
 
-Eine offizielle Erweiterung für [Hostwerk](https://github.com/Passimoritz/hostwerk-public).
+[English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.1)
 
-## Funktionen
+![Bildschirmfoto](docs/screenshot.de.png)
+
+## Was sie kann
 
 - **Wo:** Minecraft-Server → Spieler (Abschnitt) und Übersichtskachel – seit 1.5.1 ohne eigenen Seitenleisten-Eintrag; die ganze Seite bleibt unter Erweiterungen → Öffnen
 - **Gleich dort, wo man sie braucht:** Abschnitt im Reiter „Spieler“ jedes Minecraft-Servers (Hostwerk mit SDK 3.2) – die Liste dieses Servers mit Suche und Profil, ohne eigenen Reiter
@@ -40,7 +42,7 @@ Braucht Hostwerk 3.0 oder neuer.
 
 Seiten laufen abgeschottet (eigener Ursprung, keine fremden Skripte); alles, was etwas ändert, fragt vorher nach.
 
-## Entwicklung
+## Entwickeln
 
 ```bash
 node --test tests/*.test.js            # Tests der Logik
@@ -50,3 +52,7 @@ node pfad/zu/hostwerk-public/sdk/check.js . --strict   # dieselbe Prüfung wie d
 Die Logik steckt in `page/lib.js` (ohne DOM, getestet), Abfragen und Fehlerzustand in `page/live.js`, die Seite in `page/app.js`. Ein Tag `vX.Y.Z` passend zu `manifest.json` veröffentlicht ein Release mit allem außer dem Repo-Werkzeug; der Hostwerk-Katalog übernimmt es.
 
 English: [README.md](README.md) · Lizenz: MIT
+
+## Lizenz
+
+MIT

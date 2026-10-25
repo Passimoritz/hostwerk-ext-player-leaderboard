@@ -4,9 +4,11 @@
 
 Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile.
 
-An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension.
+[Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 3.1 or newer)
 
-## Features
+![Screenshot](docs/screenshot.png)
+
+## What it does
 
 - **Where:** Minecraft server → Players (section) and the dashboard tile – no own sidebar entry since 1.5.1; the full page stays under Extensions → Open
 - **Right where you need it:** a section in the “Players” tab of every Minecraft server (Hostwerk with SDK 3.2) – the board of that server with search and profile, without its own tab
@@ -40,7 +42,7 @@ Needs Hostwerk 3.0 or newer.
 
 Pages run isolated (own origin, no external scripts); anything that changes something asks you first.
 
-## Development
+## Develop
 
 ```bash
 node --test tests/*.test.js            # logic tests
@@ -50,3 +52,7 @@ node path/to/hostwerk-public/sdk/check.js . --strict   # same check as the catal
 The logic lives in `page/lib.js` (no DOM, tested), polling and the error state in `page/live.js`, the page in `page/app.js`. A tag `vX.Y.Z` matching `manifest.json` publishes a release with everything except the repository tooling; the Hostwerk catalog picks it up.
 
 Deutsch: [README.de.md](README.de.md) · License: MIT
+
+## License
+
+MIT
