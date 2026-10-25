@@ -2,6 +2,8 @@
 
 # Player leaderboard
 
+> **Merged into “Players” (extension `player-ticker` 2.0):** the leaderboard is now a tab of the “Players” extension – together with “Who is online?”. Hostwerk installs “Players” by itself, takes over snapshots, game-server playtime, settings and web pages and removes this extension. There are no new versions here.
+
 Who plays, mines, kills or dies the most – across all Minecraft servers or per server, all time or for the week and month, plus playtime and visits on game servers. With a stream view, its own address for OBS and a dashboard tile.
 
 [Deutsch](README.de.md) · An official [Hostwerk](https://github.com/Passimoritz/hostwerk-public) extension (runs sandboxed, Hostwerk 3.1 or newer)

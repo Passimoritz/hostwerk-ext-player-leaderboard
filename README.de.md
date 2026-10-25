@@ -2,6 +2,8 @@
 
 # Spieler-Bestenliste
 
+> **Aufgegangen in „Spieler“ (Erweiterung `player-ticker` 2.0):** Die Bestenliste ist jetzt ein Reiter der Erweiterung „Spieler“ – zusammen mit „Wer ist online?“. Hostwerk installiert „Spieler“ von selbst, übernimmt Schnappschüsse, Spielzeit auf Spiele-Servern, Einstellungen und Webseiten und entfernt diese Erweiterung. Hier gibt es keine neuen Fassungen mehr.
+
 Wer am meisten spielt, abbaut, besiegt oder stirbt – über alle Minecraft-Server zusammen oder je Server, gesamt oder für Woche und Monat, dazu Spielzeit und Besuche auf Spiele-Servern. Mit Stream-Ansicht, eigener Adresse für OBS und Kachel für die Übersicht.
 
 [English](README.md) · Offizielle [Hostwerk](https://github.com/Passimoritz/hostwerk-public)-Erweiterung (läuft abgeschottet, ab Hostwerk 3.1)
